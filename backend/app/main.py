@@ -27,6 +27,21 @@ async def lifespan(app: FastAPI):
     create_all_tables()
     logger.info("Tables ready.")
 
+    # Auto-seed database if empty (ensures cloud deployments like Render are pre-populated)
+    from app.database import SessionLocal
+    from app.models.account import Account
+    db = SessionLocal()
+    try:
+        if db.query(Account).count() == 0:
+            logger.info("Database is empty. Auto-seeding hackathon demo dataset...")
+            from app.seed.seed_data import seed
+            seed(db)
+            logger.info("Database seeded successfully.")
+    except Exception as e:
+        logger.error(f"Auto-seeding failed: {e}")
+    finally:
+        db.close()
+
     # Pre-warm the ML model
     logger.info("Loading ML model...")
     try:
@@ -42,6 +57,7 @@ async def lifespan(app: FastAPI):
 
     # Shutdown
     logger.info("Shutting down ScamDetect API.")
+
 
 
 app = FastAPI(
