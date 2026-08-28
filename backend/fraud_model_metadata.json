@@ -1,0 +1,29 @@
+{
+  "threshold": 0.97,
+  "scale_pos_weight": 600,
+  "feature_order": [
+    "step",
+    "amount",
+    "balance_diff_old",
+    "balance_diff_new",
+    "money_movement",
+    "balance_diff_error_old",
+    "balance_diff_error_new",
+    "type_CASH_IN",
+    "type_CASH_OUT",
+    "type_DEBIT",
+    "type_PAYMENT",
+    "type_TRANSFER"
+  ],
+  "encoded_type_columns": [
+    "type_CASH_IN",
+    "type_CASH_OUT",
+    "type_DEBIT",
+    "type_PAYMENT",
+    "type_TRANSFER"
+  ],
+  "recall_at_threshold": 0.872,
+  "precision_at_threshold": 0.738,
+  "f1_at_threshold": null,
+  "trained_on_rows": 5090096
+}

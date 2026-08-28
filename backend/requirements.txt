@@ -1,0 +1,16 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+sqlalchemy==2.0.36
+pydantic==2.9.2
+pydantic-settings==2.6.1
+python-dotenv==1.0.1
+xgboost==3.4.1
+scikit-learn==1.6.1
+pandas==2.2.3
+numpy==2.1.3
+joblib==1.4.2
+networkx==3.4.2
+faker==30.8.1
+python-dateutil==2.9.0
+httpx==0.27.2
+# shap==0.46.0  # Requires C++ build tools; install manually if available: pip install shap
