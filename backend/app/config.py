@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     # Model's own classification threshold
     MODEL_FRAUD_THRESHOLD: float = 0.99525
 
-    CORS_ORIGINS: list = ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173"]
+    CORS_ORIGINS: list = ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173","https://scam-detection-razor-pay-hackathon.vercel.app"]
 
     class Config:
         env_file = ".env"
