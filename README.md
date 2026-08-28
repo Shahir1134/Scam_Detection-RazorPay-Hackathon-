@@ -1,5 +1,5 @@
 🛡️ AI Scam Detection & Investigation Platform
-
+LIVE LINK : https://scam-detection-razor-pay-hackathon.vercel.app/
 «Detect → Explain → Investigate → Trace»
 
 An AI-powered fraud investigation platform built for the Razorpay Hackathon 2026 — AI Risk Manager Track.
