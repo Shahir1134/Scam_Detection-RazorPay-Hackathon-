@@ -118,18 +118,6 @@ Frontend: React · TypeScript · Vite · Tailwind CSS · React Flow · Recharts
 
 ---
 
-🔌 API
-
-POST /api/v1/transactions/analyze
-GET  /api/v1/transactions/{id}
-GET  /api/v1/accounts/{id}
-GET  /api/v1/accounts/{id}/transactions
-GET  /api/v1/accounts/{id}/incidents
-GET  /api/v1/accounts/{id}/network
-POST /api/v1/cases
-GET  /api/v1/cases/{id}
-POST /api/v1/cases/{id}/actions
-
 ---
 
 🔐 Responsible AI
