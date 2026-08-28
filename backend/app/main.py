@@ -95,6 +95,29 @@ app.include_router(cases.router, prefix="/api/v1")
 app.include_router(dashboard.router, prefix="/api/v1")
 
 
+@app.get("/seed")
+@app.post("/seed")
+@app.get("/api/v1/seed")
+@app.post("/api/v1/seed")
+def trigger_seed(db: Session = Depends(get_db)):
+    from app.seed.seed_data import seed
+    from app.models.account import Account
+    from app.models.transaction import Transaction
+    from app.models.incident import Incident
+    
+    count = db.query(Account).count()
+    if count == 0:
+        seed(db)
+        count = db.query(Account).count()
+    
+    return {
+        "status": "ready",
+        "accounts": count,
+        "transactions": db.query(Transaction).count(),
+        "incidents": db.query(Incident).count(),
+    }
+
+
 @app.get("/health")
 def health():
     return {"status": "ok", "service": "ScamDetect AI Risk Manager", "version": "1.0.0"}
@@ -107,4 +130,6 @@ def root():
         "hackathon": "Razorpay Hackathon 2026",
         "docs": "/docs",
         "health": "/health",
+        "seed": "/seed",
     }
+
